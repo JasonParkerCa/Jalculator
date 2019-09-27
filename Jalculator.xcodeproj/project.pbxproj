@@ -1,0 +1,391 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		962C62EE2339688F00A8E213 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962C62ED2339688F00A8E213 /* AppDelegate.swift */; };
+		962C62F02339688F00A8E213 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962C62EF2339688F00A8E213 /* SceneDelegate.swift */; };
+		962C62F42339688F00A8E213 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 962C62F32339688F00A8E213 /* Assets.xcassets */; };
+		962C62F72339688F00A8E213 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 962C62F62339688F00A8E213 /* Preview Assets.xcassets */; };
+		962C62FA2339688F00A8E213 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 962C62F82339688F00A8E213 /* LaunchScreen.storyboard */; };
+		962C630A233968AC00A8E213 /* ButtonTapSoundEffect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 962C6302233968AB00A8E213 /* ButtonTapSoundEffect.mp3 */; };
+		962C630B233968AC00A8E213 /* ButtonTapSoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962C6303233968AB00A8E213 /* ButtonTapSoundEffect.swift */; };
+		962C630C233968AC00A8E213 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962C6304233968AB00A8E213 /* MainView.swift */; };
+		962C630D233968AC00A8E213 /* CalculatorPadHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962C6305233968AB00A8E213 /* CalculatorPadHelpers.swift */; };
+		962C630E233968AC00A8E213 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962C6306233968AB00A8E213 /* InfoView.swift */; };
+		962C630F233968AC00A8E213 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962C6308233968AC00A8E213 /* SettingsView.swift */; };
+		962C6310233968AC00A8E213 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962C6309233968AC00A8E213 /* Settings.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		962C62EA2339688F00A8E213 /* Jalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		962C62ED2339688F00A8E213 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		962C62EF2339688F00A8E213 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		962C62F32339688F00A8E213 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		962C62F62339688F00A8E213 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		962C62F92339688F00A8E213 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		962C62FB2339688F00A8E213 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		962C6302233968AB00A8E213 /* ButtonTapSoundEffect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ButtonTapSoundEffect.mp3; sourceTree = "<group>"; };
+		962C6303233968AB00A8E213 /* ButtonTapSoundEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonTapSoundEffect.swift; sourceTree = "<group>"; };
+		962C6304233968AB00A8E213 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		962C6305233968AB00A8E213 /* CalculatorPadHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorPadHelpers.swift; sourceTree = "<group>"; };
+		962C6306233968AB00A8E213 /* InfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		962C6308233968AC00A8E213 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		962C6309233968AC00A8E213 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		962C62E72339688F00A8E213 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		962C62E12339688F00A8E213 = {
+			isa = PBXGroup;
+			children = (
+				962C62EC2339688F00A8E213 /* Jalculator */,
+				962C62EB2339688F00A8E213 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		962C62EB2339688F00A8E213 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				962C62EA2339688F00A8E213 /* Jalculator.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		962C62EC2339688F00A8E213 /* Jalculator */ = {
+			isa = PBXGroup;
+			children = (
+				962C62ED2339688F00A8E213 /* AppDelegate.swift */,
+				962C62EF2339688F00A8E213 /* SceneDelegate.swift */,
+				962C6306233968AB00A8E213 /* InfoView.swift */,
+				962C6307233968AC00A8E213 /* SettingsView */,
+				962C6301233968AB00A8E213 /* MainView */,
+				962C62F32339688F00A8E213 /* Assets.xcassets */,
+				962C62F82339688F00A8E213 /* LaunchScreen.storyboard */,
+				962C62FB2339688F00A8E213 /* Info.plist */,
+				962C62F52339688F00A8E213 /* Preview Content */,
+			);
+			path = Jalculator;
+			sourceTree = "<group>";
+		};
+		962C62F52339688F00A8E213 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				962C62F62339688F00A8E213 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		962C6301233968AB00A8E213 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				962C6304233968AB00A8E213 /* MainView.swift */,
+				962C6305233968AB00A8E213 /* CalculatorPadHelpers.swift */,
+				962C6303233968AB00A8E213 /* ButtonTapSoundEffect.swift */,
+				962C6302233968AB00A8E213 /* ButtonTapSoundEffect.mp3 */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		962C6307233968AC00A8E213 /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				962C6308233968AC00A8E213 /* SettingsView.swift */,
+				962C6309233968AC00A8E213 /* Settings.swift */,
+			);
+			path = SettingsView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		962C62E92339688F00A8E213 /* Jalculator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 962C62FE2339688F00A8E213 /* Build configuration list for PBXNativeTarget "Jalculator" */;
+			buildPhases = (
+				962C62E62339688F00A8E213 /* Sources */,
+				962C62E72339688F00A8E213 /* Frameworks */,
+				962C62E82339688F00A8E213 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Jalculator;
+			productName = Jalculator;
+			productReference = 962C62EA2339688F00A8E213 /* Jalculator.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		962C62E22339688F00A8E213 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+				ORGANIZATIONNAME = "Jason Parker";
+				TargetAttributes = {
+					962C62E92339688F00A8E213 = {
+						CreatedOnToolsVersion = 11.0;
+					};
+				};
+			};
+			buildConfigurationList = 962C62E52339688F00A8E213 /* Build configuration list for PBXProject "Jalculator" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 962C62E12339688F00A8E213;
+			productRefGroup = 962C62EB2339688F00A8E213 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				962C62E92339688F00A8E213 /* Jalculator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		962C62E82339688F00A8E213 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				962C62FA2339688F00A8E213 /* LaunchScreen.storyboard in Resources */,
+				962C630A233968AC00A8E213 /* ButtonTapSoundEffect.mp3 in Resources */,
+				962C62F72339688F00A8E213 /* Preview Assets.xcassets in Resources */,
+				962C62F42339688F00A8E213 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		962C62E62339688F00A8E213 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				962C630F233968AC00A8E213 /* SettingsView.swift in Sources */,
+				962C62EE2339688F00A8E213 /* AppDelegate.swift in Sources */,
+				962C6310233968AC00A8E213 /* Settings.swift in Sources */,
+				962C630C233968AC00A8E213 /* MainView.swift in Sources */,
+				962C630D233968AC00A8E213 /* CalculatorPadHelpers.swift in Sources */,
+				962C630B233968AC00A8E213 /* ButtonTapSoundEffect.swift in Sources */,
+				962C630E233968AC00A8E213 /* InfoView.swift in Sources */,
+				962C62F02339688F00A8E213 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		962C62F82339688F00A8E213 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				962C62F92339688F00A8E213 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		962C62FC2339688F00A8E213 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		962C62FD2339688F00A8E213 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		962C62FF2339688F00A8E213 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2.0;
+				DEVELOPMENT_ASSET_PATHS = "\"Jalculator/Preview Content\"";
+				DEVELOPMENT_TEAM = 5CQTH7M957;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Jalculator/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Jalculator.JasonParker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		962C63002339688F00A8E213 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2.0;
+				DEVELOPMENT_ASSET_PATHS = "\"Jalculator/Preview Content\"";
+				DEVELOPMENT_TEAM = 5CQTH7M957;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Jalculator/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Jalculator.JasonParker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		962C62E52339688F00A8E213 /* Build configuration list for PBXProject "Jalculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				962C62FC2339688F00A8E213 /* Debug */,
+				962C62FD2339688F00A8E213 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		962C62FE2339688F00A8E213 /* Build configuration list for PBXNativeTarget "Jalculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				962C62FF2339688F00A8E213 /* Debug */,
+				962C63002339688F00A8E213 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 962C62E22339688F00A8E213 /* Project object */;
+}
