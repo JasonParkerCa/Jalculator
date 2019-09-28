@@ -214,176 +214,170 @@ struct MainView: View {
                 .padding(.trailing)
             Spacer()
             VStack {
-                VStack {
+                HStack {
                     Spacer()
-                    HStack {
-                        Spacer()
-                        Button(action: {
-                            self.buttonTapSoundEffectPlayer.play()
-                            self.pressDelete()
-                        }) {
-                            ButtonTextView(title: "D", isBold: true, color: Color(UIColor.systemBlue))
-                        }.frame(width: 80, height: 80)
-                        Spacer()
-                        Button(action: {
-                            self.buttonTapSoundEffectPlayer.play()
-                            self.pressToggle()
-                        }) {
-                            ButtonTextView(title: "+/-", isBold: true, color: Color(UIColor.systemBlue))
-                        }.frame(width: 80, height: 80)
-                        Spacer()
-                        Button(action: {
-                            self.buttonTapSoundEffectPlayer.play()
-                            self.pressRoot()
-                        }) {
-                            ButtonTextView(title: "√a", isBold: true, color: Color(UIColor.systemBlue))
-                        }.frame(width: 80, height: 80)
-                        Spacer()
-                        Button(action: {
-                            self.buttonTapSoundEffectPlayer.play()
-                            self.pressClear()
-                        }) {
-                            ButtonTextView(title: clearButtonTitle, isBold: true, color: Color(UIColor.systemRed))
-                        }.frame(width: 80, height: 80)
-                        Spacer()
-                    }
+                    Button(action: {
+                        self.buttonTapSoundEffectPlayer.play()
+                        self.pressDelete()
+                    }) {
+                        ButtonTextView(title: "D", isBold: true, color: Color(UIColor.systemBlue))
+                    }.frame(width: 80, height: 80)
                     Spacer()
-                    HStack {
-                        Spacer()
-                        ForEach(["7", "8", "9"], id: \.self) { title in
-                            Group {
-                                Button(action: {
-                                    self.buttonTapSoundEffectPlayer.play()
-                                    self.pressNumber(number: title)
-                                }) {
-                                    ButtonTextView(title: title, isBold: true, color: Color(UIColor.label))
-                                }.frame(width: 80, height: 80)
-                                Spacer()
-                            }
+                    Button(action: {
+                        self.buttonTapSoundEffectPlayer.play()
+                        self.pressToggle()
+                    }) {
+                        ButtonTextView(title: "+/-", isBold: true, color: Color(UIColor.systemBlue))
+                    }.frame(width: 80, height: 80)
+                    Spacer()
+                    Button(action: {
+                        self.buttonTapSoundEffectPlayer.play()
+                        self.pressRoot()
+                    }) {
+                        ButtonTextView(title: "√a", isBold: true, color: Color(UIColor.systemBlue))
+                    }.frame(width: 80, height: 80)
+                    Spacer()
+                    Button(action: {
+                        self.buttonTapSoundEffectPlayer.play()
+                        self.pressClear()
+                    }) {
+                        ButtonTextView(title: clearButtonTitle, isBold: true, color: Color(UIColor.systemRed))
+                    }.frame(width: 80, height: 80)
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    ForEach(["7", "8", "9"], id: \.self) { title in
+                        Group {
+                            Button(action: {
+                                self.buttonTapSoundEffectPlayer.play()
+                                self.pressNumber(number: title)
+                            }) {
+                                ButtonTextView(title: title, isBold: true, color: Color(UIColor.label))
+                            }.frame(width: 80, height: 80)
+                            Spacer()
                         }
-                        Button(action: {
-                            self.buttonTapSoundEffectPlayer.play()
-                            self.pressOperation(operation: .divide)
-                        }) {
-                            ButtonTextView(title: Operation.divide.rawValue, isBold: true, color: Color(UIColor.systemBlue))
-                        }.frame(width: 80, height: 80)
-                        Spacer()
                     }
+                    Button(action: {
+                        self.buttonTapSoundEffectPlayer.play()
+                        self.pressOperation(operation: .divide)
+                    }) {
+                        ButtonTextView(title: Operation.divide.rawValue, isBold: true, color: Color(UIColor.systemBlue))
+                    }.frame(width: 80, height: 80)
                     Spacer()
-                    HStack {
-                        Spacer()
-                        ForEach(["4", "5", "6"], id: \.self) { title in
-                            Group {
-                                Button(action: {
-                                    self.buttonTapSoundEffectPlayer.play()
-                                    self.pressNumber(number: title)
-                                }) {
-                                    ButtonTextView(title: title, isBold: true, color: Color(UIColor.label))
-                                }.frame(width: 80, height: 80)
-                                Spacer()
-                            }
+                }
+                HStack {
+                    Spacer()
+                    ForEach(["4", "5", "6"], id: \.self) { title in
+                        Group {
+                            Button(action: {
+                                self.buttonTapSoundEffectPlayer.play()
+                                self.pressNumber(number: title)
+                            }) {
+                                ButtonTextView(title: title, isBold: true, color: Color(UIColor.label))
+                            }.frame(width: 80, height: 80)
+                            Spacer()
                         }
-                        Button(action: {
-                            self.buttonTapSoundEffectPlayer.play()
-                            self.pressOperation(operation: .multiply)
-                        }) {
-                            ButtonTextView(title: Operation.multiply.rawValue, isBold: true, color: Color(UIColor.systemBlue))
-                        }.frame(width: 80, height: 80)
-                        Spacer()
                     }
+                    Button(action: {
+                        self.buttonTapSoundEffectPlayer.play()
+                        self.pressOperation(operation: .multiply)
+                    }) {
+                        ButtonTextView(title: Operation.multiply.rawValue, isBold: true, color: Color(UIColor.systemBlue))
+                    }.frame(width: 80, height: 80)
                     Spacer()
-                    HStack {
-                        Spacer()
-                        ForEach(["1", "2", "3"], id: \.self) { title in
-                            Group {
-                                Button(action: {
-                                    self.buttonTapSoundEffectPlayer.play()
-                                    self.pressNumber(number: title)
-                                }) {
-                                    ButtonTextView(title: title, isBold: true, color: Color(UIColor.label))
-                                }.frame(width: 80, height: 80)
-                                Spacer()
-                            }
+                }
+                HStack {
+                    Spacer()
+                    ForEach(["1", "2", "3"], id: \.self) { title in
+                        Group {
+                            Button(action: {
+                                self.buttonTapSoundEffectPlayer.play()
+                                self.pressNumber(number: title)
+                            }) {
+                                ButtonTextView(title: title, isBold: true, color: Color(UIColor.label))
+                            }.frame(width: 80, height: 80)
+                            Spacer()
                         }
-                        Button(action: {
-                            self.buttonTapSoundEffectPlayer.play()
-                            self.pressOperation(operation: .add)
-                        }) {
-                            ButtonTextView(title: Operation.add.rawValue, isBold: true, color: Color(UIColor.systemBlue))
-                        }.frame(width: 80, height: 80)
-                        Spacer()
                     }
+                    Button(action: {
+                        self.buttonTapSoundEffectPlayer.play()
+                        self.pressOperation(operation: .add)
+                    }) {
+                        ButtonTextView(title: Operation.add.rawValue, isBold: true, color: Color(UIColor.systemBlue))
+                    }.frame(width: 80, height: 80)
                     Spacer()
-                    HStack {
-                        Spacer()
-                        Button(action: {
-                            self.buttonTapSoundEffectPlayer.play()
-                            self.pressDecimalPoint()
-                        }) {
-                            ButtonTextView(title: ".", isBold: true, color: Color(UIColor.systemBlue))
-                        }.frame(width: 80, height: 80)
-                        Spacer()
-                        Button(action: {
-                            self.buttonTapSoundEffectPlayer.play()
-                            self.pressNumber(number: "0")
-                        }) {
-                            ButtonTextView(title: "0", isBold: true, color: Color(UIColor.label))
-                        }.frame(width: 80, height: 80)
-                        Spacer()
-                        Button(action: {
-                            self.buttonTapSoundEffectPlayer.play()
-                            self.pressEqual()
-                        }) {
-                            ButtonTextView(title: "=", isBold: true, color: Color(UIColor.systemBlue))
-                        }.frame(width: 80, height: 80)
-                        Spacer()
-                        Button(action: {
-                            self.buttonTapSoundEffectPlayer.play()
-                            self.pressOperation(operation: .minus)
-                        }) {
-                            ButtonTextView(title: Operation.minus.rawValue, isBold: true, color: Color(UIColor.systemBlue))
-                        }.frame(width: 80, height: 80)
-                        Spacer()
-                    }
                 }
                 HStack {
                     Spacer()
                     Button(action: {
-                        self.isSettingsViewPresented.toggle()
+                        self.buttonTapSoundEffectPlayer.play()
+                        self.pressDecimalPoint()
                     }) {
-                        Image("settingsIcon")
+                        ButtonTextView(title: ".", isBold: true, color: Color(UIColor.systemBlue))
+                    }.frame(width: 80, height: 80)
+                    Spacer()
+                    Button(action: {
+                        self.buttonTapSoundEffectPlayer.play()
+                        self.pressNumber(number: "0")
+                    }) {
+                        ButtonTextView(title: "0", isBold: true, color: Color(UIColor.label))
+                    }.frame(width: 80, height: 80)
+                    Spacer()
+                    Button(action: {
+                        self.buttonTapSoundEffectPlayer.play()
+                        self.pressEqual()
+                    }) {
+                        ButtonTextView(title: "=", isBold: true, color: Color(UIColor.systemBlue))
+                    }.frame(width: 80, height: 80)
+                    Spacer()
+                    Button(action: {
+                        self.buttonTapSoundEffectPlayer.play()
+                        self.pressOperation(operation: .minus)
+                    }) {
+                        ButtonTextView(title: Operation.minus.rawValue, isBold: true, color: Color(UIColor.systemBlue))
+                    }.frame(width: 80, height: 80)
+                    Spacer()
+                }
+            }
+            .padding(.bottom)
+            HStack {
+                Spacer()
+                Button(action: {
+                    self.isSettingsViewPresented.toggle()
+                }) {
+                    Image("settingsIcon")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(Color(UIColor.label))
+                }
+                .sheet(isPresented: $isSettingsViewPresented, content: {
+                    SettingsView().environmentObject(self.settings)
+                })
+                Spacer()
+                Button(action: {
+                    self.isInfoViewPresented.toggle()
+                }) {
+                    ZStack {
+                        Image("questionBackgroundIcon")
                             .resizable()
                             .scaledToFill()
                             .frame(width: 20, height: 20)
                             .foregroundColor(Color(UIColor.label))
+                        Image("questionIcon")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 10, height: 10)
+                            .foregroundColor(Color(UIColor.systemBackground))
                     }
-                    .sheet(isPresented: $isSettingsViewPresented, content: {
-                        SettingsView().environmentObject(self.settings)
-                    })
-                    Spacer()
-                    Button(action: {
-                        self.isInfoViewPresented.toggle()
-                    }) {
-                        ZStack {
-                            Image("questionBackgroundIcon")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 20, height: 20)
-                                .foregroundColor(Color(UIColor.label))
-                            Image("questionIcon")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 10, height: 10)
-                                .foregroundColor(Color(UIColor.systemBackground))
-                        }
-                    }
-                    .sheet(isPresented: $isInfoViewPresented, content: {
-                        InfoView()
-                    })
-                    Spacer()
                 }
-                .padding(.bottom, 20)
+                .sheet(isPresented: $isInfoViewPresented, content: {
+                    InfoView()
+                })
+                Spacer()
             }
+            .padding(.bottom, 50)
         }
     }
 }
