@@ -121,7 +121,10 @@ struct MainView: View {
         switch appState {
         case .Number, .Equal:
             displayString += operation.rawValue
-        case .DecimalPoint, .Operation, .Clear:
+        case .Operation:
+            displayString.remove(at: displayString.index(before: displayString.endIndex))
+            displayString += operation.rawValue
+        case .DecimalPoint, .Clear:
             appState = .Error
         default:
             return
@@ -209,9 +212,9 @@ struct MainView: View {
                 .bold()
                 .foregroundColor(Color(UIColor.label))
                 .lineLimit(1)
-                .minimumScaleFactor(0.5)
-                .padding(.leading)
-                .padding(.trailing)
+                .minimumScaleFactor(0.6)
+                .padding(.leading, 40)
+                .padding(.trailing, 40)
             Spacer()
             VStack {
                 HStack {
