@@ -110,8 +110,6 @@ struct MainView: View {
         switch appState {
         case .Number(false), .Equal(false):
             displayString += "."
-        case .DecimalPoint, .Number(true), .Operation, .Equal(true):
-            appState = .Error
         default:
             return
         }
@@ -124,8 +122,6 @@ struct MainView: View {
         case .Operation:
             displayString.remove(at: displayString.index(before: displayString.endIndex))
             displayString += operation.rawValue
-        case .DecimalPoint, .Clear:
-            appState = .Error
         default:
             return
         }
@@ -153,8 +149,6 @@ struct MainView: View {
             } else {
                 displayString = "-" + displayString
             }
-        case .DecimalPoint, .Operation:
-            appState = .Error
         default:
             return
         }
@@ -169,8 +163,6 @@ struct MainView: View {
                 let newResult = pow(Double(displayString)!, 0.5)
                 displayString = isInt(number: newResult) ? String(Int(newResult)) : String(newResult)
             }
-        case .DecimalPoint, .Operation:
-            appState = .Error
         default:
             return
         }
@@ -187,6 +179,11 @@ struct MainView: View {
             }
             let expression = NSExpression(format: expressionString)
             let tempResult = (expression.expressionValue(with: nil, context: nil) as! NSNumber).doubleValue
+            print(tempResult)
+            if tempResult.isInfinite || tempResult.isNaN {
+                appState = .Error
+                return
+            }
             displayString = formatResult(result: tempResult)
             appState = isDecimalState(expression: displayString) ? .Equal(true) : .Equal(false)
         case .Equal:
@@ -197,8 +194,6 @@ struct MainView: View {
                 displayString = formatResult(result: tempResult)
                 appState = isDecimalState(expression: displayString) ? .Equal(true) : .Equal(false)
             }
-        case .DecimalPoint, .Operation:
-            appState = .Error
         default:
             return
         }
