@@ -203,7 +203,7 @@ struct MainView: View {
         VStack {
             Spacer()
             Text(displayString)
-                .font(.largeTitle)
+                .font(.system(size: 40))
                 .bold()
                 .foregroundColor(Color(UIColor.label))
                 .lineLimit(1)
@@ -218,31 +218,43 @@ struct MainView: View {
                         self.buttonTapSoundEffectPlayer.play()
                         self.pressDelete()
                     }) {
-                        ButtonTextView(title: "D", isBold: true, color: Color(UIColor.systemBlue))
-                    }.frame(width: 80, height: 80)
+                        ButtonTextView(title: "D", isBold: true, color: Color(UIColor.systemBackground))
+                    }
+                    .frame(width: 80, height: 80)
+                    .background(Color(UIColor.systemGray))
+                    .cornerRadius(100)
                     Spacer()
                     Button(action: {
                         self.buttonTapSoundEffectPlayer.play()
                         self.pressToggle()
                     }) {
-                        ButtonTextView(title: "+/-", isBold: true, color: Color(UIColor.systemBlue))
-                    }.frame(width: 80, height: 80)
+                        ButtonTextView(title: "+/-", isBold: true, color: Color(UIColor.systemBackground))
+                    }
+                    .frame(width: 80, height: 80)
+                    .background(Color(UIColor.systemGray))
+                    .cornerRadius(100)
                     Spacer()
                     Button(action: {
                         self.buttonTapSoundEffectPlayer.play()
                         self.pressRoot()
                     }) {
-                        ButtonTextView(title: "√a", isBold: true, color: Color(UIColor.systemBlue))
-                    }.frame(width: 80, height: 80)
+                        ButtonTextView(title: "√a", isBold: true, color: Color(UIColor.systemBackground))
+                    }
+                    .frame(width: 80, height: 80)
+                    .background(Color(UIColor.systemGray))
+                    .cornerRadius(100)
                     Spacer()
                     Button(action: {
                         self.buttonTapSoundEffectPlayer.play()
                         self.pressClear()
                     }) {
-                        ButtonTextView(title: clearButtonTitle, isBold: true, color: Color(UIColor.systemRed))
-                    }.frame(width: 80, height: 80)
+                        ButtonTextView(title: clearButtonTitle, isBold: true, color: Color(UIColor.systemBackground))
+                    }
+                    .frame(width: 80, height: 80)
+                    .background(Color(UIColor.systemGray))
+                    .cornerRadius(100)
                     Spacer()
-                }
+                }.padding(.bottom, 20)
                 HStack {
                     Spacer()
                     ForEach(["7", "8", "9"], id: \.self) { title in
@@ -251,8 +263,11 @@ struct MainView: View {
                                 self.buttonTapSoundEffectPlayer.play()
                                 self.pressNumber(number: title)
                             }) {
-                                ButtonTextView(title: title, isBold: true, color: Color(UIColor.label))
-                            }.frame(width: 80, height: 80)
+                                ButtonTextView(title: title, isBold: true, color: Color(UIColor.systemBackground))
+                            }
+                            .frame(width: 80, height: 80)
+                            .background(Color(UIColor.label))
+                            .cornerRadius(100)
                             Spacer()
                         }
                     }
@@ -260,10 +275,13 @@ struct MainView: View {
                         self.buttonTapSoundEffectPlayer.play()
                         self.pressOperation(operation: .divide)
                     }) {
-                        ButtonTextView(title: Operation.divide.rawValue, isBold: true, color: Color(UIColor.systemBlue))
-                    }.frame(width: 80, height: 80)
+                        ButtonTextView(title: Operation.divide.rawValue, isBold: true, color: Color(UIColor.systemBackground))
+                    }
+                    .frame(width: 80, height: 80)
+                    .background(Color(UIColor.systemGray))
+                    .cornerRadius(100)
                     Spacer()
-                }
+                }.padding(.bottom, 20)
                 HStack {
                     Spacer()
                     ForEach(["4", "5", "6"], id: \.self) { title in
@@ -272,8 +290,11 @@ struct MainView: View {
                                 self.buttonTapSoundEffectPlayer.play()
                                 self.pressNumber(number: title)
                             }) {
-                                ButtonTextView(title: title, isBold: true, color: Color(UIColor.label))
-                            }.frame(width: 80, height: 80)
+                                ButtonTextView(title: title, isBold: true, color: Color(UIColor.systemBackground))
+                            }
+                            .frame(width: 80, height: 80)
+                            .background(Color(UIColor.label))
+                            .cornerRadius(100)
                             Spacer()
                         }
                     }
@@ -281,10 +302,13 @@ struct MainView: View {
                         self.buttonTapSoundEffectPlayer.play()
                         self.pressOperation(operation: .multiply)
                     }) {
-                        ButtonTextView(title: Operation.multiply.rawValue, isBold: true, color: Color(UIColor.systemBlue))
-                    }.frame(width: 80, height: 80)
+                        ButtonTextView(title: Operation.multiply.rawValue, isBold: true, color: Color(UIColor.systemBackground))
+                    }
+                    .frame(width: 80, height: 80)
+                    .background(Color(UIColor.systemGray))
+                    .cornerRadius(100)
                     Spacer()
-                }
+                }.padding(.bottom, 20)
                 HStack {
                     Spacer()
                     ForEach(["1", "2", "3"], id: \.self) { title in
@@ -293,8 +317,11 @@ struct MainView: View {
                                 self.buttonTapSoundEffectPlayer.play()
                                 self.pressNumber(number: title)
                             }) {
-                                ButtonTextView(title: title, isBold: true, color: Color(UIColor.label))
-                            }.frame(width: 80, height: 80)
+                                ButtonTextView(title: title, isBold: true, color: Color(UIColor.systemBackground))
+                            }
+                            .frame(width: 80, height: 80)
+                            .background(Color(UIColor.label))
+                            .cornerRadius(100)
                             Spacer()
                         }
                     }
@@ -302,43 +329,57 @@ struct MainView: View {
                         self.buttonTapSoundEffectPlayer.play()
                         self.pressOperation(operation: .add)
                     }) {
-                        ButtonTextView(title: Operation.add.rawValue, isBold: true, color: Color(UIColor.systemBlue))
-                    }.frame(width: 80, height: 80)
+                        ButtonTextView(title: Operation.add.rawValue, isBold: true, color: Color(UIColor.systemBackground))
+                    }
+                    .frame(width: 80, height: 80)
+                    .background(Color(UIColor.systemGray))
+                    .cornerRadius(100)
                     Spacer()
-                }
+                }.padding(.bottom, 20)
                 HStack {
                     Spacer()
                     Button(action: {
                         self.buttonTapSoundEffectPlayer.play()
                         self.pressDecimalPoint()
                     }) {
-                        ButtonTextView(title: ".", isBold: true, color: Color(UIColor.systemBlue))
-                    }.frame(width: 80, height: 80)
+                        ButtonTextView(title: ".", isBold: true, color: Color(UIColor.systemBackground))
+                    }
+                    .frame(width: 80, height: 80)
+                    .background(Color(UIColor.systemGray))
+                    .cornerRadius(100)
                     Spacer()
                     Button(action: {
                         self.buttonTapSoundEffectPlayer.play()
                         self.pressNumber(number: "0")
                     }) {
-                        ButtonTextView(title: "0", isBold: true, color: Color(UIColor.label))
-                    }.frame(width: 80, height: 80)
+                        ButtonTextView(title: "0", isBold: true, color: Color(UIColor.systemBackground))
+                    }
+                    .frame(width: 80, height: 80)
+                    .background(Color(UIColor.label))
+                    .cornerRadius(100)
                     Spacer()
                     Button(action: {
                         self.buttonTapSoundEffectPlayer.play()
                         self.pressEqual()
                     }) {
-                        ButtonTextView(title: "=", isBold: true, color: Color(UIColor.systemBlue))
-                    }.frame(width: 80, height: 80)
+                        ButtonTextView(title: "=", isBold: true, color: Color(UIColor.systemBackground))
+                    }
+                    .frame(width: 80, height: 80)
+                    .background(Color(UIColor.systemGray))
+                    .cornerRadius(100)
                     Spacer()
                     Button(action: {
                         self.buttonTapSoundEffectPlayer.play()
                         self.pressOperation(operation: .minus)
                     }) {
-                        ButtonTextView(title: Operation.minus.rawValue, isBold: true, color: Color(UIColor.systemBlue))
-                    }.frame(width: 80, height: 80)
+                        ButtonTextView(title: Operation.minus.rawValue, isBold: true, color: Color(UIColor.systemBackground))
+                    }
+                    .frame(width: 80, height: 80)
+                    .background(Color(UIColor.systemGray))
+                    .cornerRadius(100)
                     Spacer()
-                }
+                }.padding(.bottom, 20)
             }
-            .padding(.bottom)
             HStack {
                 Spacer()
                 Button(action: {
@@ -374,8 +415,7 @@ struct MainView: View {
                     InfoView()
                 })
                 Spacer()
-            }
-            .padding(.bottom, 50)
+            }.padding(.bottom, 20)
         }
     }
 }

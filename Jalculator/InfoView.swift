@@ -26,16 +26,6 @@ struct InfoView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Spacer()
-                Button(action: {
-                    self.presentationMode.wrappedValue.dismiss()
-                }) {
-                    Text("Done")
-                }
-                .padding(.top)
-                .padding(.trailing)
-            }
             Spacer()
             InfoTextView(content: "A calculator developed by")
             InfoTextView(content: "Jason Parker")
