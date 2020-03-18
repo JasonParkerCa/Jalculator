@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-let buttonSize = UIScreen.main.bounds.width > 414 ? 100 : UIScreen.main.bounds.width * 0.75 / 4
+let buttonSize = UIScreen.main.bounds.width > 414 ? 80 : UIScreen.main.bounds.width * 0.75 / 4
 
 struct MainView: View {
     
