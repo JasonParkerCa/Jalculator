@@ -62,11 +62,19 @@ extension MainView {
     func formatExpression(expression: String) -> String {
         var components = ExpressionString()
         var tempString = ""
+        var containedE = false
         for character in expression {
             let cString = String(character)
-            if isNumber(string: cString) || cString == "." {
-                tempString += cString
-            } else if operationSymbols.contains(cString) {
+            if isNumber(string: cString) || cString == "." || cString == "e" || containedE == true {
+                if !operationSymbols.contains(cString) {
+                    tempString += cString
+                }
+                if cString == "e" {
+                    containedE = true
+                } else {
+                    containedE = false
+                }
+            } else if operationSymbols.contains(cString) && containedE == false {
                 components.numbers.append(tempString)
                 components.operations.append(cString)
                 tempString.removeAll()

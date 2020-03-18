@@ -13,7 +13,6 @@
 		962C62F72339688F00A8E213 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 962C62F62339688F00A8E213 /* Preview Assets.xcassets */; };
 		962C62FA2339688F00A8E213 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 962C62F82339688F00A8E213 /* LaunchScreen.storyboard */; };
 		962C630A233968AC00A8E213 /* ButtonTapSoundEffect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 962C6302233968AB00A8E213 /* ButtonTapSoundEffect.mp3 */; };
-		962C630B233968AC00A8E213 /* ButtonTapSoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962C6303233968AB00A8E213 /* ButtonTapSoundEffect.swift */; };
 		962C630C233968AC00A8E213 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962C6304233968AB00A8E213 /* MainView.swift */; };
 		962C630D233968AC00A8E213 /* CalculatorPadHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962C6305233968AB00A8E213 /* CalculatorPadHelpers.swift */; };
 		962C630E233968AC00A8E213 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962C6306233968AB00A8E213 /* InfoView.swift */; };
@@ -30,7 +29,6 @@
 		962C62F92339688F00A8E213 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		962C62FB2339688F00A8E213 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		962C6302233968AB00A8E213 /* ButtonTapSoundEffect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ButtonTapSoundEffect.mp3; sourceTree = "<group>"; };
-		962C6303233968AB00A8E213 /* ButtonTapSoundEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonTapSoundEffect.swift; sourceTree = "<group>"; };
 		962C6304233968AB00A8E213 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		962C6305233968AB00A8E213 /* CalculatorPadHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorPadHelpers.swift; sourceTree = "<group>"; };
 		962C6306233968AB00A8E213 /* InfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
@@ -70,12 +68,13 @@
 			children = (
 				962C62ED2339688F00A8E213 /* AppDelegate.swift */,
 				962C62EF2339688F00A8E213 /* SceneDelegate.swift */,
-				962C6306233968AB00A8E213 /* InfoView.swift */,
-				962C6307233968AC00A8E213 /* SettingsView */,
 				962C6301233968AB00A8E213 /* MainView */,
+				962C6307233968AC00A8E213 /* SettingsView */,
+				962C6306233968AB00A8E213 /* InfoView.swift */,
 				962C62F32339688F00A8E213 /* Assets.xcassets */,
 				962C62F82339688F00A8E213 /* LaunchScreen.storyboard */,
 				962C62FB2339688F00A8E213 /* Info.plist */,
+				962C6302233968AB00A8E213 /* ButtonTapSoundEffect.mp3 */,
 				962C62F52339688F00A8E213 /* Preview Content */,
 			);
 			path = Jalculator;
@@ -94,8 +93,6 @@
 			children = (
 				962C6304233968AB00A8E213 /* MainView.swift */,
 				962C6305233968AB00A8E213 /* CalculatorPadHelpers.swift */,
-				962C6303233968AB00A8E213 /* ButtonTapSoundEffect.swift */,
-				962C6302233968AB00A8E213 /* ButtonTapSoundEffect.mp3 */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -186,7 +183,6 @@
 				962C6310233968AC00A8E213 /* Settings.swift in Sources */,
 				962C630C233968AC00A8E213 /* MainView.swift in Sources */,
 				962C630D233968AC00A8E213 /* CalculatorPadHelpers.swift in Sources */,
-				962C630B233968AC00A8E213 /* ButtonTapSoundEffect.swift in Sources */,
 				962C630E233968AC00A8E213 /* InfoView.swift in Sources */,
 				962C62F02339688F00A8E213 /* SceneDelegate.swift in Sources */,
 			);

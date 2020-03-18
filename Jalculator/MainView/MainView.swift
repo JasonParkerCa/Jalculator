@@ -8,7 +8,6 @@
 
 import SwiftUI
 
-let buttonTapSoundEffectPlayer = ButtonTapSoundEffect()
 let buttonSize = UIScreen.main.bounds.width > 414 ? 100 : UIScreen.main.bounds.width * 0.75 / 4
 
 struct MainView: View {
@@ -241,7 +240,7 @@ struct MainView: View {
                     .bold()
                     .foregroundColor(Color(UIColor.label))
                     .lineLimit(1)
-                    .minimumScaleFactor(0.6)
+                    .minimumScaleFactor(0.5)
                     .padding(.leading, 40)
                     .padding(.trailing, 40)
                 Spacer()
@@ -309,8 +308,8 @@ struct ButtonView: View {
     var body: some View {
         return (
             Button(action: {
+                soundPlayer.play()
                 self.action()
-                buttonTapSoundEffectPlayer.play()
             }, label: {
                 Text(title)
                     .font(.title)
