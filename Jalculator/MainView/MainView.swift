@@ -203,7 +203,7 @@ struct MainView: View {
             [
                 ButtonAttributes(text: "D", textColor: .OperationButtonTextColor, backgroundColor: .OperationButtonBackgroundColor, action: { self.pressDelete() }),
                 ButtonAttributes(text: "+/-", textColor: .OperationButtonTextColor, backgroundColor: .OperationButtonBackgroundColor, action: { self.pressToggle() }),
-                ButtonAttributes(text: "√x", textColor: .OperationButtonTextColor, backgroundColor: .OperationButtonBackgroundColor, action: { self.pressToggle() }),
+                ButtonAttributes(text: "√x", textColor: .OperationButtonTextColor, backgroundColor: .OperationButtonBackgroundColor, action: { self.pressRoot() }),
                 ButtonAttributes(text: clearButtonTitle, textColor: .OperationButtonTextColor, backgroundColor: .OperationButtonBackgroundColor, action: { self.pressClear() }),
             ],
             [
