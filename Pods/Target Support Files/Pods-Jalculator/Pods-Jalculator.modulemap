@@ -1,6 +1,0 @@
-framework module Pods_Jalculator {
-  umbrella header "Pods-Jalculator-umbrella.h"
-
-  export *
-  module * { export * }
-}
