@@ -14,9 +14,10 @@ struct MainView: View {
     
     enum AppState {
         case Number(_ Decimal: Bool)
+        case Equal(_ Decimal: Bool)
         case DecimalPoint
         case Operation
-        case Equal(_ Decimal: Bool)
+        case Extra
         case Error
         case Clear
     }
@@ -95,7 +96,7 @@ struct MainView: View {
         case .Clear:
             clearButtonTitle = "C"
             displayString = numberString
-        case .Number, .DecimalPoint, .Operation:
+        case .Number, .DecimalPoint, .Operation, .Extra:
             displayString += numberString
         case .Equal:
             appState = isDecimalState(expression: displayString) ? .Number(true) : .Number(false)
@@ -116,7 +117,7 @@ struct MainView: View {
     
     func pressOperation(operation: Operation) {
         switch appState {
-        case .Number, .Equal:
+        case .Number, .Equal, .Extra:
             displayString += operation.rawValue
         case .Operation:
             displayString.remove(at: displayString.index(before: displayString.endIndex))
@@ -128,7 +129,7 @@ struct MainView: View {
     
     func pressDelete() {
         switch appState {
-        case .Number, .DecimalPoint, .Equal:
+        case .Number, .DecimalPoint, .Equal, .Extra:
             displayString.removeLast()
             appState = displayString == "" ? .Clear : appState
         case .Operation:
@@ -142,11 +143,15 @@ struct MainView: View {
     
     func pressToggle() {
         switch appState {
-        case .Number, .Equal:
-            if ifOperationIncluded(expression: displayString) {
+        case .Number, .Equal, .Extra:
+            if isNegative(string: displayString) {
+                displayString.removeFirst()
+                appState = .Extra
+            } else if ifOperationIncluded(expression: displayString) {
                 appState = .Error
             } else {
                 displayString = "-" + displayString
+                appState = .Extra
             }
         default:
             return
@@ -155,12 +160,13 @@ struct MainView: View {
     
     func pressRoot() {
         switch appState {
-        case .Number, .Equal:
+        case .Number, .Equal, .Extra:
             if ifOperationIncluded(expression: displayString) {
                 appState = .Error
             } else {
-                let newResult = pow(Double(displayString)!, 0.5)
-                displayString = isInt(number: newResult) ? String(Int(newResult)) : String(newResult)
+                let newResult = Double(displayString)!.squareRoot()
+                displayString = formatResult(result: Decimal(newResult))
+                appState = .Extra
             }
         default:
             return
@@ -176,8 +182,8 @@ struct MainView: View {
             } else {
                 lastExpression = "nil"
             }
-            let expression = NSExpression(format: expressionString)
-            let tempResult = (expression.expressionValue(with: nil, context: nil) as! NSNumber).doubleValue
+            let expression = Expression(expressionString: expressionString)
+            let tempResult = expression.calculate()
             if tempResult.isInfinite || tempResult.isNaN {
                 appState = .Error
                 return
@@ -186,9 +192,9 @@ struct MainView: View {
             appState = isDecimalState(expression: displayString) ? .Equal(true) : .Equal(false)
         case .Equal:
             if lastExpression != "nil" {
-                let expressionString = displayString + lastExpression
-                let expression = NSExpression(format: expressionString)
-                let tempResult = (expression.expressionValue(with: nil, context: nil) as! NSNumber).doubleValue
+                let expressionString = (isDecimalState(expression: displayString) ? "(\(displayString))" : "(\(displayString).0)") + lastExpression
+                let expression = Expression(expressionString: expressionString)
+                let tempResult = expression.calculate()
                 displayString = formatResult(result: tempResult)
                 appState = isDecimalState(expression: displayString) ? .Equal(true) : .Equal(false)
             }
@@ -236,13 +242,14 @@ struct MainView: View {
             VStack {
                 Spacer()
                 Text(displayString)
-                    .font(.system(size: 40))
                     .bold()
-                    .foregroundColor(Color(UIColor.label))
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.5)
+                    .lineLimit(2)
+                    .font(.system(size: 40))
+                    .minimumScaleFactor(0.6)
                     .padding(.leading, 40)
                     .padding(.trailing, 40)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(Color(UIColor.label))
                 Spacer()
                 VStack {
                     ForEach(buttonAttributes, id: \.first!.id, content: { row in
@@ -340,4 +347,10 @@ extension UIColor {
         return UIColor(named: "OperationButtonTextColor")!
     }
     
+}
+
+extension Decimal {
+    var doubleValue:Double {
+        return NSDecimalNumber(decimal:self).doubleValue
+    }
 }

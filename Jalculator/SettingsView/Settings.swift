@@ -10,6 +10,6 @@ import SwiftUI
 
 class Settings: ObservableObject {
     
-    @Published var numberOfDecimalSpacesRoundTo: Double = 9
+    @Published var numberOfDecimalSpacesRoundTo: Int = 9
     
 }

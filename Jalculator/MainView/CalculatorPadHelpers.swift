@@ -18,6 +18,19 @@ extension MainView {
         return Int(string) != nil ? true : false
     }
     
+    func isNegative(string: String) -> Bool {
+        for character in string {
+            if "+" == character || "*" == character || "/" == character {
+                return false
+            }
+        }
+        if string[string.startIndex] == "-" {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     func isDecimalState(expression: String) -> Bool {
         for character in expression.reversed() {
             if character == "." {
@@ -100,18 +113,16 @@ extension MainView {
         return newExpression
     }
     
-    func formatResult(result: Double) -> String {
-        let tempResult = round(result * pow(10, settings.numberOfDecimalSpacesRoundTo)) / pow(10, settings.numberOfDecimalSpacesRoundTo)
-        if tempResult <= Double(Int.max) {
-            return isInt(number: tempResult) ? String(Int(tempResult)) : String(tempResult)
-        } else {
-            var newRsult = String(tempResult)
-            if newRsult.last! == "0" && newRsult[newRsult.index(before: newRsult.lastIndex(of: "0")!)] == "." {
-                newRsult.removeLast()
-                newRsult.removeLast()
-            }
-            return newRsult
+    func formatResult(result: Decimal) -> String {
+        var temp = result
+        var tempResult: Decimal = 0
+        NSDecimalRound(&tempResult, &temp, settings.numberOfDecimalSpacesRoundTo, .bankers)
+        var newRsult = "\(tempResult)"
+        if newRsult.last! == "0" && newRsult[newRsult.index(before: newRsult.lastIndex(of: "0")!)] == "." {
+            newRsult.removeLast()
+            newRsult.removeLast()
         }
+        return newRsult
     }
     
 }

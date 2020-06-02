@@ -32,7 +32,7 @@ class Expression {
             if let subExpressionRange = expressionString.range(of: regex_subExpression, options: .regularExpression, range: nil, locale: nil) {
                 let subExpression = String(expressionString[subExpressionRange])
                 let numbers = matches(for: regex_number, in: subExpression)
-            let operation = subExpression[subExpression.range(of: regex_operation, options: .regularExpression, range: nil, locale: nil)!]
+                let operation = subExpression[subExpression.range(of: regex_operation, options: .regularExpression, range: nil, locale: nil)!]
                 var result: Decimal = 0
                 if operation == "*" {
                     result = Decimal(string: numbers[0])! * Decimal(string: numbers[1])!
