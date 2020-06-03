@@ -18,14 +18,19 @@ extension MainView {
         return Int(string) != nil ? true : false
     }
     
-    func isNegative(string: String) -> Bool {
-        for character in string {
-            if "+" == character || "*" == character || "/" == character {
-                return false
+    func isLastNumberNegative(expression: String) -> Bool {
+        if let first_character = expression.first {
+            if first_character == "-" {
+                return true
             }
         }
-        if string[string.startIndex] == "-" {
-            return true
+        let reversedExpression = String(expression.reversed())
+        if let lastNumber_Range = reversedExpression.range(of: "([0-9]|\\.|\\(|\\)|\\-)+((?=\\+|\\-|\\\(Operation.multiply.rawValue)|\\\(Operation.divide.rawValue)))?", options: .regularExpression, range: nil, locale: nil) {
+            if ifOperationIncluded(expression: String(reversedExpression[lastNumber_Range])) {
+                return true
+            } else {
+                return false
+            }
         } else {
             return false
         }
@@ -72,28 +77,49 @@ extension MainView {
         return String(lastExpression.reversed())
     }
     
+    func positiveLastNumber(expression: String, isEqualMode: Bool) -> String {
+        if isEqualMode == true {
+            return expression.replacingOccurrences(of: "-", with: "")
+        }
+        if let lastNumber_Range = expression.range(of: "\\(.+\\)", options: .regularExpression, range: nil, locale: nil) {
+            var newNumber = String(expression[lastNumber_Range])
+            newNumber.removeFirst()
+            newNumber.removeFirst()
+            newNumber.removeLast()
+            return expression.replacingCharacters(in: lastNumber_Range, with: newNumber)
+        } else {
+            return expression
+        }
+    }
+    
+    func negativeLastNumber(expression: String) -> String {
+        let newExpression = String(expression.reversed())
+        if let lastNumber_Range = newExpression.range(of: "([0-9]|\\.|\\(|\\)|\\-)+((?=\\+|\\-|\\\(Operation.multiply.rawValue)|\\\(Operation.divide.rawValue)))?", options: .regularExpression, range: nil, locale: nil) {
+            var newNumber = String(newExpression[lastNumber_Range])
+            newNumber = ")\(newNumber)-("
+            return String(newExpression.replacingCharacters(in: lastNumber_Range, with: newNumber).reversed())
+        } else {
+            return expression
+        }
+    }
+    
     func formatExpression(expression: String) -> String {
         var components = ExpressionString()
-        var tempString = ""
-        var containedE = false
-        for character in expression {
-            let cString = String(character)
-            if isNumber(string: cString) || cString == "." || cString == "e" || containedE == true {
-                if !operationSymbols.contains(cString) {
-                    tempString += cString
-                }
-                if cString == "e" {
-                    containedE = true
-                } else {
-                    containedE = false
-                }
-            } else if operationSymbols.contains(cString) && containedE == false {
-                components.numbers.append(tempString)
-                components.operations.append(cString)
-                tempString.removeAll()
+        var tempString = expression
+        while true {
+            if let number_Range = tempString.range(of: "([0-9]|\\.)+|(?<=\\()([0-9]|\\.|\\-)+(?=\\))", options: .regularExpression, range: nil, locale: nil) {
+                components.numbers.append(String(tempString[number_Range]))
+                tempString = tempString.replacingCharacters(in: number_Range, with: "")
+            } else {
+                break
             }
         }
-        components.numbers.append(tempString)
+        for character in tempString {
+            let character_String = String(character)
+            if operationSymbols.contains(character_String) {
+                components.operations.append(character_String)
+            }
+        }
         for (index, number) in components.numbers.enumerated() {
             if isDecimalState(expression: number) {
                 components.numbers[index] = "(\(number))"
@@ -101,7 +127,7 @@ extension MainView {
                 components.numbers[index] = "(\(number).0)"
             }
         }
-        var newExpression = ""
+        var newExpression = String()
         for (index, number) in components.numbers.enumerated() {
             newExpression += number
             if index < components.operations.count {
@@ -118,11 +144,15 @@ extension MainView {
         var tempResult: Decimal = 0
         NSDecimalRound(&tempResult, &temp, settings.numberOfDecimalSpacesRoundTo, .bankers)
         var newRsult = "\(tempResult)"
-        if newRsult.last! == "0" && newRsult[newRsult.index(before: newRsult.lastIndex(of: "0")!)] == "." {
-            newRsult.removeLast()
-            newRsult.removeLast()
+        if tempResult == 0 {
+            return "0"
+        } else {
+            if newRsult.last! == "0" && newRsult[newRsult.index(before: newRsult.lastIndex(of: "0")!)] == "." {
+                newRsult.removeLast()
+                newRsult.removeLast()
+            }
+            return newRsult
         }
-        return newRsult
     }
     
 }

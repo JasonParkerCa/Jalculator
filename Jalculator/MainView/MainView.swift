@@ -12,7 +12,7 @@ let buttonSize = UIScreen.main.bounds.width > 414 ? 80 : UIScreen.main.bounds.wi
 
 struct MainView: View {
     
-    enum AppState {
+    enum AppState: Equatable {
         case Number(_ Decimal: Bool)
         case Equal(_ Decimal: Bool)
         case DecimalPoint
@@ -144,13 +144,11 @@ struct MainView: View {
     func pressToggle() {
         switch appState {
         case .Number, .Equal, .Extra:
-            if isNegative(string: displayString) {
-                displayString.removeFirst()
+            if isLastNumberNegative(expression: displayString) {
+                displayString = positiveLastNumber(expression: displayString, isEqualMode: appState == AppState.Equal(true) || appState == AppState.Equal(false))
                 appState = .Extra
-            } else if ifOperationIncluded(expression: displayString) {
-                appState = .Error
             } else {
-                displayString = "-" + displayString
+                displayString = negativeLastNumber(expression: displayString)
                 appState = .Extra
             }
         default:
@@ -175,7 +173,7 @@ struct MainView: View {
     
     func pressEqual() {
         switch appState {
-        case .Number:
+        case .Number, .Extra:
             let expressionString = formatExpression(expression: displayString)
             if numberOfOperations(expression: displayString) == 1 {
                 lastExpression = lastExpression(expression: expressionString)

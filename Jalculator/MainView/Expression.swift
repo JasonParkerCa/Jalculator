@@ -25,9 +25,9 @@ class Expression {
     }
     
     func process(mode: String) {
-        let regex_subExpression = mode == "*/" ? "\\([0-9|(e\\+)|\\-|\\.]+\\)(\\*|\\/)\\([(0-9|(e\\+)|\\-|\\.]+\\)" : "\\([0-9|(e\\+)|\\-|\\.]+\\)(\\+|\\-)\\([(0-9|(e\\+)|\\-|\\.]+\\)"
-        let regex_operation = mode == "*/" ? "(\\*|\\/)(?=\\()" : "(\\+|\\-)(?=\\()"
-        let regex_number = "([0-9]|(e\\+)|\\-|\\.){3,}"
+        let regex_subExpression = mode == "*/" ? "\\(([0-9]|\\.|\\-)+\\)[\\*|\\/]\\(([0-9]|\\.|\\-)+\\)" : "\\(([0-9]|\\.|\\-)+\\)[\\+|\\-]\\(([0-9]|\\.|\\-)+\\)"
+        let regex_operation = "(?<=\\)).{1}(?=\\()"
+        let regex_number = "(?<=\\()([0-9]|\\.|\\-)+(?=\\))"
         while true {
             if let subExpressionRange = expressionString.range(of: regex_subExpression, options: .regularExpression, range: nil, locale: nil) {
                 let subExpression = String(expressionString[subExpressionRange])
