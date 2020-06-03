@@ -272,7 +272,7 @@ struct MainView: View {
                         Image("settingsIcon")
                             .resizable()
                             .scaledToFill()
-                            .frame(width: 20, height: 20)
+                            .frame(width: 25, height: 25)
                             .foregroundColor(Color(UIColor.label))
                     }
                     .sheet(isPresented: $isSettingsViewPresented, content: {
@@ -286,12 +286,12 @@ struct MainView: View {
                             Image("questionBackgroundIcon")
                                 .resizable()
                                 .scaledToFill()
-                                .frame(width: 20, height: 20)
+                                .frame(width: 25, height: 25)
                                 .foregroundColor(Color(UIColor.label))
                             Image("questionIcon")
                                 .resizable()
                                 .scaledToFill()
-                                .frame(width: 10, height: 10)
+                                .frame(width: 12, height: 12)
                                 .foregroundColor(Color(UIColor.systemBackground))
                         }
                     }
