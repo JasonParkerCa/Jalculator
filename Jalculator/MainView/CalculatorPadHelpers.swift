@@ -81,12 +81,13 @@ extension MainView {
         if isEqualMode == true {
             return expression.replacingOccurrences(of: "-", with: "")
         }
-        if let lastNumber_Range = expression.range(of: "\\(.+\\)", options: .regularExpression, range: nil, locale: nil) {
-            var newNumber = String(expression[lastNumber_Range])
-            newNumber.removeFirst()
+        let newExpression = String(expression.reversed())
+        if let lastNumber_Range = newExpression.range(of: "\\)([0-9]|\\-|\\.)+\\(", options: .regularExpression, range: nil, locale: nil) {
+            var newNumber = String(newExpression[lastNumber_Range])
             newNumber.removeFirst()
             newNumber.removeLast()
-            return expression.replacingCharacters(in: lastNumber_Range, with: newNumber)
+            newNumber.removeLast()
+            return String(newExpression.replacingCharacters(in: lastNumber_Range, with: newNumber).reversed())
         } else {
             return expression
         }

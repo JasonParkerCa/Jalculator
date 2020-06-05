@@ -16,12 +16,12 @@ class Expression {
         self.expressionString = expressionString
     }
     
-    func calculate() -> Decimal {
+    func calculate() -> Decimal? {
         process(mode: "*/")
         process(mode: "+-")
         expressionString.remove(at: expressionString.startIndex)
         expressionString.remove(at: expressionString.index(before: expressionString.endIndex))
-        return Decimal(string: expressionString)!
+        return Decimal(string: expressionString)
     }
     
     func process(mode: String) {

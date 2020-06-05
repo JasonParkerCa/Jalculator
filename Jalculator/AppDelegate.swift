@@ -16,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.ambient)
+            try AVAudioSession.sharedInstance().setActive(true, options: .init())
+        } catch {
+            print("Cannot enable the background audio.")
+        }
         let url = Bundle.main.url(forResource: "ButtonTapSoundEffect", withExtension: ".mp3")
         soundPlayer = try! AVAudioPlayer(contentsOf: url!)
         soundPlayer.volume = 0.5

@@ -96,8 +96,15 @@ struct MainView: View {
         case .Clear:
             clearButtonTitle = "C"
             displayString = numberString
-        case .Number, .DecimalPoint, .Operation, .Extra:
+        case .Operation:
             displayString += numberString
+        case .Number, .DecimalPoint, .Extra:
+            if isLastNumberNegative(expression: displayString) {
+                displayString.removeLast()
+                displayString += "\(numberString))"
+            } else {
+                displayString += numberString
+            }
         case .Equal:
             appState = isDecimalState(expression: displayString) ? .Number(true) : .Number(false)
             displayString += numberString
@@ -181,20 +188,26 @@ struct MainView: View {
                 lastExpression = "nil"
             }
             let expression = Expression(expressionString: expressionString)
-            let tempResult = expression.calculate()
-            if tempResult.isInfinite || tempResult.isNaN {
+            if let tempResult = expression.calculate() {
+                if tempResult.isInfinite || tempResult.isNaN {
+                    appState = .Error
+                    return
+                }
+                displayString = formatResult(result: tempResult)
+                appState = isDecimalState(expression: displayString) ? .Equal(true) : .Equal(false)
+            } else {
                 appState = .Error
-                return
             }
-            displayString = formatResult(result: tempResult)
-            appState = isDecimalState(expression: displayString) ? .Equal(true) : .Equal(false)
         case .Equal:
             if lastExpression != "nil" {
                 let expressionString = (isDecimalState(expression: displayString) ? "(\(displayString))" : "(\(displayString).0)") + lastExpression
                 let expression = Expression(expressionString: expressionString)
-                let tempResult = expression.calculate()
-                displayString = formatResult(result: tempResult)
-                appState = isDecimalState(expression: displayString) ? .Equal(true) : .Equal(false)
+                if let tempResult = expression.calculate() {
+                    displayString = formatResult(result: tempResult)
+                    appState = isDecimalState(expression: displayString) ? .Equal(true) : .Equal(false)
+                } else {
+                    appState = .Error
+                }
             }
         default:
             return
