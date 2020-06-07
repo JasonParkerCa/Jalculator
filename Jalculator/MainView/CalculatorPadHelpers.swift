@@ -25,7 +25,7 @@ extension MainView {
             }
         }
         let reversedExpression = String(expression.reversed())
-        if let lastNumber_Range = reversedExpression.range(of: "([0-9]|\\.|\\(|\\)|\\-)+((?=\\+|\\-|\\\(Operation.multiply.rawValue)|\\\(Operation.divide.rawValue)))?", options: .regularExpression, range: nil, locale: nil) {
+        if let lastNumber_Range = reversedExpression.range(of: "(?<!\\+|\\-|\\\(Operation.multiply.rawValue)|\\\(Operation.divide.rawValue))(\\)([0-9]|\\.)+\\-\\()((?=\\+|\\-|\\\(Operation.multiply.rawValue)|\\\(Operation.divide.rawValue)))?", options: .regularExpression, range: nil, locale: nil) {
             if ifOperationIncluded(expression: String(reversedExpression[lastNumber_Range])) {
                 return true
             } else {
@@ -95,7 +95,7 @@ extension MainView {
     
     func negativeLastNumber(expression: String) -> String {
         let newExpression = String(expression.reversed())
-        if let lastNumber_Range = newExpression.range(of: "([0-9]|\\.|\\(|\\)|\\-)+((?=\\+|\\-|\\\(Operation.multiply.rawValue)|\\\(Operation.divide.rawValue)))?", options: .regularExpression, range: nil, locale: nil) {
+        if let lastNumber_Range = newExpression.range(of: "([0-9]|\\.)+((?=\\+|\\-|\\\(Operation.multiply.rawValue)|\\\(Operation.divide.rawValue)))?", options: .regularExpression, range: nil, locale: nil) {
             var newNumber = String(newExpression[lastNumber_Range])
             newNumber = ")\(newNumber)-("
             return String(newExpression.replacingCharacters(in: lastNumber_Range, with: newNumber).reversed())
