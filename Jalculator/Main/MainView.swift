@@ -53,7 +53,7 @@ struct MainView: View {
                     appState = .DecimalPoint
                 } else if operationSymbols.contains(lastElement) {
                     appState = .Operation
-                } else if isNumber(string: lastElement) {
+                } else if isNumber(string: lastElement) || lastElement == ")" {
                     switch appState {
                     case .Equal:
                         return
@@ -137,7 +137,11 @@ struct MainView: View {
     func pressDelete() {
         switch appState {
         case .Number, .DecimalPoint, .Equal, .Extra:
-            displayString.removeLast()
+            if isLastNumberNegative(expression: displayString) {
+                displayString = positiveLastNumber(expression: displayString, isEqualMode: appState == AppState.Equal(true) || appState == AppState.Equal(false))
+            } else {
+                displayString.removeLast()
+            }
             appState = displayString == "" ? .Clear : appState
         case .Operation:
             displayString.removeLast()
